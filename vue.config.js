@@ -5,7 +5,7 @@
 // })
 
 //commonJS 
-module.exports = 
+module.exports =
 {
   pages: {
     index: {

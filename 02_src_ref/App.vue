@@ -19,6 +19,7 @@ export default {
   methods: {
     show() {
       //let element = document.getElementsByTagName("h1")[0];
+      let element = this.$refs.title;
       console.log(this.$refs.title); // DOM element
       console.log(this.$refs.btn); // DOM element
       console.log(this.$refs.sch); // School Component Instance Obj (vc)
