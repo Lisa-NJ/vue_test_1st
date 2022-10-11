@@ -11,4 +11,9 @@ new Vue({
   el: "#app",
   // 下面这一行以后解释，将 App 放入容器中
   render: h => h(App)
+
+  // render: q=>q('h1', 'Hello')
+  
+  // template: `<h1>Hello</h1>`
+  // comments: {App}
 })
