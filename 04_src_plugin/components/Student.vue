@@ -1,6 +1,6 @@
 <template>
   <div class="demo">
-    <h2>name:{{ name }}</h2>
+    <h2>name:{{ name | upperCase }}</h2>
     <h2>age:{{ age }}</h2>
   </div>
 </template>
@@ -16,9 +16,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.demo {
-  background-color: skyblue;
-}
-</style>

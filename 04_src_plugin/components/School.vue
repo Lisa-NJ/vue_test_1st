@@ -1,7 +1,7 @@
 <template>
-  <div class="demo">
+  <div>
     <h2>name:{{ name }}</h2>
-    <h2 class="guigu">address:{{ address }}</h2>
+    <h2>address:{{ address }}</h2>
   </div>
 </template>
 
@@ -16,12 +16,3 @@ export default {
   },
 };
 </script>
-
-<style lang='less' scoped>
-.demo {
-  background-color: blanchedalmond;
-  .guigu {
-    font-size: 40px;
-  }
-}
-</style>

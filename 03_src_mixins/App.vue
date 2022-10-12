@@ -1,8 +1,8 @@
 <template>
   <dir>
-    <School />
-    <hr />
-    <Student />
+    <School/>
+    <hr>
+    <Student/>
   </dir>
 </template> 
 
@@ -14,7 +14,7 @@ export default {
   name: "App",
   components: {
     School,
-    Student,
+    Student
   },
 };
 </script>

@@ -1,8 +1,10 @@
 <template>
   <dir>
+    <h2>{{ msg | upperCase }}</h2>
     <School />
     <hr />
     <Student />
+    <input type="text" v-fbind:value="msg" />
   </dir>
 </template> 
 
@@ -15,6 +17,11 @@ export default {
   components: {
     School,
     Student,
+  },
+  data() {
+    return {
+      msg: "input something",
+    };
   },
 };
 </script>
