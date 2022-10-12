@@ -1,18 +1,18 @@
 <template>
-  <div>   
+  <div class="demo">   
     <h2 @click="showName">name:{{ name }}</h2>
-    <h2>address:{{ address }}</h2>
+    <h2>age:{{ age }}</h2>
   </div>
 </template>
 
 <script>
 // import {show} from '../show.js'
 export default {
-  name: "School",
+  name: "Student",
   data() {
     return {
-      name: "Shang",
-      address: "Beijing",
+      name: "Tom",
+      age: 15,
     };
   },
   // mixins: [show]

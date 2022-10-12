@@ -1,34 +1,20 @@
 <template>
   <dir>
-    <h1 v-text="msg" ref="title"></h1>
-    <button ref="btn" @click="show">click to output DOM</button>
-    <School ref="sch" />
+    <School/>
+    <hr>
+    <Student/>
   </dir>
 </template> 
 
 <script>
 import School from "./components/School.vue";
+import Student from "./components/Student.vue";
 
 export default {
   name: "App",
-  data() {
-    return {
-      msg: "welcome to Australia",
-    };
-  },
-  methods: {
-    show() {
-      //let element = document.getElementsByTagName("h1")[0];
-      console.log(this.$refs.title); // DOM element
-      console.log(this.$refs.btn); // DOM element
-      console.log(this.$refs.sch); // School Component Instance Obj (vc)
-    },
-  },
   components: {
     School,
+    Student
   },
 };
 </script>
-
-<style>
-</style>
