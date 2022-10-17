@@ -1,8 +1,8 @@
 <template>
   <dir class="todo-container">
     <dir class="todo-wrap">
-      <TodoHeader :inputTodo="addTodo"/>
-      <TodoList :todos="todoList"/>
+      <TodoHeader :inputTodo="addTodo" />
+      <TodoList :todos="todoList" :swapStatus="swapTodoStatus" />
       <TodoFooter />
     </dir>
   </dir>
@@ -18,37 +18,45 @@ export default {
   components: {
     TodoHeader,
     TodoList,
-    TodoFooter
+    TodoFooter,
   },
-  data(){
+  data() {
     return {
-        todoList: [
-        {id: "001", title: "swimming", done: false},
-        {id: "002", title: "lunch", done: false},
-        {id: "003", title: "reading", done: true}
-      ]}
+      todoList: [
+        { id: "001", title: "swimming", done: false },
+        { id: "002", title: "lunch", done: false },
+        { id: "003", title: "reading", done: true },
+      ],
+    };
   },
-  methods:{
+  methods: {
     addTodo(todoObj) {
-      this.todoList.unshift(todoObj)
-    }
-  }
+      this.todoList.unshift(todoObj);
+    },
+    swapTodoStatus(id) {
+      this.todoList.forEach((todo) => {
+        if (todo.id === id) {
+          todo.done = !todo.done;
+        }
+      });
+    },
+  },
 };
 </script>
 
 <style>
-
 /* base */
 .btn {
   display: inline-block;
   padding: 4px 12px;
   margin-bottom: 0;
-  font-size:14px;
+  font-size: 14px;
   line-height: 20px;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0, 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0,
+    1px 2px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
 }
 
@@ -77,5 +85,4 @@ export default {
   border: 1px solid #ddd;
   border-radius: 5px;
 }
-
 </style>

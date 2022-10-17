@@ -1,17 +1,23 @@
 <template>
   <li>
     <label>
-      <input type="checkbox" :checked="done">
-      <span>{{title}}</span>
+      <!-- either 'change' or 'click' works -->
+      <input type="checkbox" :checked="todoObj.done" @click="swap" />
+      <span>{{ todoObj.title }}</span>
     </label>
-    <button class="btn btn-danger" style="display:none">delete</button>
+    <button class="btn btn-danger" style="display: none">delete</button>
   </li>
 </template>
 
 <script>
 export default {
   name: "TodoItem",
-  props: ["title", "done"]
+  props: ["todoObj", "swapStatus"],
+  methods: {
+    swap() {
+      this.swapStatus(this.todoObj.id);
+    },
+  },
 };
 </script>
 
@@ -50,5 +56,4 @@ li:before {
 li:last-child {
   border-bottom: none;
 }
-
 </style>

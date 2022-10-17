@@ -1,24 +1,24 @@
 <template>
   <div>
     <ul class="todo-main">
-    
-        <TodoItem v-for="todo in todos" :title="todo.title" :done="todo.done" :key="todo.id"/>
-    
-           
+      <TodoItem
+        v-for="todo in todos"
+        :todoObj="todo"
+        :swapStatus="swapStatus"
+        :key="todo.id"
+      />
     </ul>
-    
   </div>
 </template>
 
 <script>
-
-import TodoItem from "./TodoItem.vue"
+import TodoItem from "./TodoItem.vue";
 export default {
   name: "TodoList",
   components: {
-    TodoItem
+    TodoItem,
   },
-  props:["todos"]
+  props: ["todos", "swapStatus"],
 };
 </script>
 
@@ -28,7 +28,7 @@ export default {
   margin-left: 0px;
   border: 1px solid #ddd;
   border-radius: 2px;
-  padding: 0px
+  padding: 0px;
 }
 
 .todo-empty {
@@ -39,6 +39,5 @@ export default {
   padding-left: 5px;
   margin-top: 10px;
 }
-
 </style>
 
