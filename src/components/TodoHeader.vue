@@ -1,6 +1,6 @@
 <template>
   <div >
-    <input type="text" v-model="title" @click.enter="add">
+    <input type="text" v-model="title" @keyup.enter="add">
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 import {nanoid} from 'nanoid'
 export default {
   name: "TodoHeader",
-  props: ["addTodo"],
+  props: ["inputTodo"],
   data() {
     return {
       title: ""
@@ -19,7 +19,7 @@ export default {
     add() {
       if(!this.title) return
       console.log(this.title);
-      this.addTodo({
+      this.inputTodo({
         id: nanoid(),
         title: this.title,
         done: false

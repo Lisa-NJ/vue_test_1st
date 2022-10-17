@@ -1,6 +1,6 @@
 <template>
   <dir>
-    <TodoHeader :addTodo="addTodo"/>
+    <TodoHeader :inputTodo="addTodo"/>
     <TodoList :todos="todoList"/>
     <TodoFooter />
   </dir>
