@@ -5,6 +5,7 @@
         v-for="todo in todos"
         :todoObj="todo"
         :swapStatus="swapStatus"
+        :delID="delID"
         :key="todo.id"
       />
     </ul>
@@ -18,7 +19,7 @@ export default {
   components: {
     TodoItem,
   },
-  props: ["todos", "swapStatus"],
+  props: ["todos", "swapStatus", "delID"],
 };
 </script>
 

@@ -1,10 +1,14 @@
 <template>
-  <div class="todo-footer">
+  <div class="todo-footer" v-show="allN > 0">
     <label>
-      <input type="checkbox">
+      <input
+        type="checkbox"
+        :checked="allN === doneN && allN"
+        @click="handleSelAll"
+      />
     </label>
     <span>
-      <span> 已完成{{doneN}}</span> / 全部{{allN}}
+      <span> 已完成{{ doneN }}</span> / 全部{{ allN }}
     </span>
     <button class="btn btn-danger">clear done tasks</button>
   </div>
@@ -13,11 +17,12 @@
 <script>
 export default {
   name: "TodoHeader",
-  data() {
-    return {
-      doneN: 0,
-      allN: 3
-    };
+
+  props: ["allN", "doneN", "setAllDone"],
+  methods: {
+    handleSelAll(e) {
+      this.setAllDone(e.target.checked);
+    },
   },
 };
 </script>
@@ -26,14 +31,14 @@ export default {
 .todo-footer {
   height: 40px;
   line-height: 40px;
-  padding-left:6px;
-  margin-top:5px;
+  padding-left: 6px;
+  margin-top: 5px;
 }
 
 .todo-footer label {
   display: inline-block;
   margin-right: 20px;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .todo-footer label input {
@@ -47,5 +52,4 @@ export default {
   float: right;
   margin-top: 5px;
 }
-
 </style>

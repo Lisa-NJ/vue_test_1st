@@ -2,8 +2,8 @@
   <dir class="todo-container">
     <dir class="todo-wrap">
       <TodoHeader :inputTodo="addTodo" />
-      <TodoList :todos="todoList" :swapStatus="swapTodoStatus" />
-      <TodoFooter />
+      <TodoList :todos="todoList" :swapStatus="swapTodoStatus" :delID="delID" />
+      <TodoFooter :allN="allN" :doneN="doneN" :setAllDone="setAll" />
     </dir>
   </dir>
 </template> 
@@ -39,6 +39,25 @@ export default {
           todo.done = !todo.done;
         }
       });
+    },
+    delID(id) {
+      this.todoList = this.todoList.filter((todo) => todo.id !== id);
+    },
+    setAll(flg) {
+      this.todoList.forEach((todo) => (todo.done = flg));
+    },
+  },
+  computed: {
+    allN() {
+      return this.todoList.length;
+    },
+    doneN() {
+      // either reduce or filter works well!
+      // return this.todoList.filter((todo) => todo.done).length;
+      return this.todoList.reduce((pre, todo) => pre + todo.done, 0);
+    },
+    flg() {
+      return this.allN === this.doneN;
     },
   },
 };

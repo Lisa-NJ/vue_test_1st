@@ -3,19 +3,26 @@
     <label>
       <!-- either 'change' or 'click' works -->
       <input type="checkbox" :checked="todoObj.done" @click="swap" />
+      <!-- v-model alone can do the job, not recommended: Vue can not detect the prop change -->
+      <!-- <input type="checkbox" v-model="todoObj.done" /> -->
       <span>{{ todoObj.title }}</span>
     </label>
-    <button class="btn btn-danger" style="display: none">delete</button>
+    <button class="btn btn-danger" @click="delMe">delete</button>
   </li>
 </template>
 
 <script>
 export default {
   name: "TodoItem",
-  props: ["todoObj", "swapStatus"],
+  props: ["todoObj", "swapStatus", "delID"],
   methods: {
     swap() {
       this.swapStatus(this.todoObj.id);
+    },
+    delMe() {
+      if (confirm("delete this item?")) {
+        this.delID(this.todoObj.id);
+      }
     },
   },
 };
@@ -55,5 +62,13 @@ li:before {
 
 li:last-child {
   border-bottom: none;
+}
+
+li:hover {
+  background-color: #ddd;
+}
+
+li:hover button {
+  display: block;
 }
 </style>
