@@ -3,7 +3,12 @@
     <dir class="todo-wrap">
       <TodoHeader :inputTodo="addTodo" />
       <TodoList :todos="todoList" :swapStatus="swapTodoStatus" :delID="delID" />
-      <TodoFooter :allN="allN" :doneN="doneN" :setAllDone="setAll" />
+      <TodoFooter
+        :allN="allN"
+        :doneN="doneN"
+        :setAllDone="setAll"
+        :clearDone="clearDone"
+      />
     </dir>
   </dir>
 </template> 
@@ -45,6 +50,9 @@ export default {
     },
     setAll(flg) {
       this.todoList.forEach((todo) => (todo.done = flg));
+    },
+    clearDone() {
+      this.todoList = this.todoList.filter((todo) => !todo.done);
     },
   },
   computed: {
