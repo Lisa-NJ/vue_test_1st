@@ -27,7 +27,11 @@ export default {
   },
   data() {
     return {
-      todoList: JSON.parse(localStorage.getItem("todos")) || [],
+      todoList: [
+        { id: "001", title: "swimming", done: false },
+        { id: "002", title: "lunch", done: false },
+        { id: "003", title: "reading", done: true },
+      ],
     };
   },
   methods: {
@@ -62,14 +66,6 @@ export default {
     },
     flg() {
       return this.allN === this.doneN;
-    },
-  },
-  watch: {
-    todoList: {
-      deep: true,
-      handler(value) {
-        localStorage.setItem("todos", JSON.stringify(value));
-      },
     },
   },
 };
