@@ -4,7 +4,7 @@
       <input type="checkbox" v-model="isAll" />
     </label>
     <span>
-      <span> 已完成{{ doneN }}</span> / 全部{{ allN }}
+      <span> done{{ doneN }}</span> / total{{ allN }}
     </span>
     <button class="btn btn-danger" @click="handleClearDone">
       clear done tasks
