@@ -1,9 +1,9 @@
 <template>
-  <dir>
+  <div>
     <School />
     <hr />
     <Student />
-  </dir>
+  </div>
 </template> 
 
 <script>

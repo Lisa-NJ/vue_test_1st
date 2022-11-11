@@ -14,22 +14,27 @@
 
 <script>
 export default {
-  name: "TodoHeader",
-
-  props: ["allN", "doneN", "setAllDone", "clearDone"],
+  name: "TodoFooter",
+  props: ["todos"],
   computed: {
+    doneN() {
+      return this.todos.filter((todo) => todo.done).length;
+    },
+    allN() {
+      return this.todos.length;
+    },
     isAll: {
       get() {
         return this.allN === this.doneN;
       },
       set(flg) {
-        this.setAllDone(flg);
+        this.$emit("setAllDone", flg);
       },
     },
   },
   methods: {
     handleClearDone() {
-      this.clearDone();
+      this.$emit("clearDone");
     },
   },
 };

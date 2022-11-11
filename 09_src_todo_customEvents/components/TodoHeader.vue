@@ -8,7 +8,7 @@
 import { nanoid } from "nanoid";
 export default {
   name: "TodoHeader",
-  props: ["inputTodo"],
+  // props: ["inputTodo"],
   data() {
     return {
       title: "",
@@ -18,7 +18,12 @@ export default {
     add() {
       if (!this.title) return;
       console.log(this.title);
-      this.inputTodo({
+      // this.inputTodo({
+      //   id: nanoid(),
+      //   title: this.title,
+      //   done: false,
+      // });
+      this.$emit("inputItem", {
         id: nanoid(),
         title: this.title,
         done: false,
