@@ -48,7 +48,8 @@ export default {
       this.todoList.forEach((todo) => {
         if (todo.id === todoRec.id) {
           console.log(`todo.tile: ${todo.title} --> ${todoRec.title}`);
-          todo.title = todoRec.title;          
+          todo.title = todoRec.title;
+          
         }
       });
     },
