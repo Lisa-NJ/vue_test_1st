@@ -47,7 +47,7 @@ export default {
       if(!e.target.value.trim()){
         return alert('Title can not be empty!')
       }
-      pubsub.publish('updateTodo', {todo,'title': e.target.value})
+      pubsub.publish('updateTodo', {...todo,'title': e.target.value})
       console.log(e.target.value)
     }
   },
