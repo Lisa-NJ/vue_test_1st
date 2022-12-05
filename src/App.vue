@@ -17,6 +17,9 @@ export default {
   components: {
     Search,
     List
+  },
+  beforeCreate() {
+    VUe.prototype.$bus = this
   }
 
 };

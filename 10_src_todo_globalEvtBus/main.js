@@ -9,6 +9,9 @@ new Vue({
   el: '#app',
   render: h => h(App),
   beforeCreate() {
-    
+    Vue.prototype.$bus1 = this;
+  },
+  beforeDestroy() {
+    this.$bus1.$off("delID")
   }
 })

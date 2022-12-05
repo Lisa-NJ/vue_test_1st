@@ -1,35 +1,34 @@
 <template>
     <div class="row">
-      <div class="card">
-        <a href="https://github.com/xxxxx" target="_blank" title="xxxxx">
-          <img src="../assets/logo.svg" style="width:100px">
+
+      <div v-for="user in users" class="card" :key="user.login">
+        <a :href="user.html_url" target="_blank">
+          <img :src="user.avatar_url" style="width:100px">
         </a>
-        <p class="card-text">xxxxxxx</p>
+        <p class="card-text">{{user.login}}</p>
       </div>
-      <div class="card">
-        <a href="https://github.com/xxxxx" target="_blank">
-          <img src="../assets/logo.svg" style="width:100px">
-        </a>
-        <p class="card-text">xxxxxxx</p>
-      </div>
-      <div class="card">
-        <a href="https://github.com/xxxxx" target="_blank">
-          <img src="../assets/logo.svg" style="width:100px">
-        </a>
-        <p class="card-text">xxxxxxx</p>
-      </div>
-      <div class="card">
-        <a href="https://github.com/xxxxx" target="_blank">
-          <img src="../assets/logo.svg" style="width:100px">
-        </a>
-        <p class="card-text">xxxxxxx</p>
-      </div>
+
     </div>
 </template>
 
+
 <script>
     export default {
-        name: 'List'
+        name: 'List',
+        data() {
+            return {
+                users: []
+            }
+        },
+        mounted(){
+            this.$bus.$on('users', this.reveiveUsers)
+        },
+        methods: {
+            reveiveUsers(userList) {
+                console.log("received users:", userList)
+                this.users = userList
+            }
+        }
     }
 </script>
 
