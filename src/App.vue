@@ -1,37 +1,24 @@
 <template>
-  <dir>
-    <button @click="getStudents">students</button>
-    <button @click="getCars">cars</button>
-  </dir>
+
+  <div class="container">
+    <Search />
+    <List />
+  </div>
+  
 </template> 
 
 <script>
-import axios from "axios";
+
+import Search from './components/Search'
+import List from './components/List'
 
 export default {
   name: "App",
+  components: {
+    Search,
+    List
+  }
 
-  methods: {
-    getStudents() {
-      axios.get("http://localhost:8080/stu/students").then(
-        (response) => {
-          console.log("success", response.data);
-        },
-        (error) => {
-          console.log("fail", error.message);
-        }
-      );
-    },
-    getCars() {
-      axios.get("http://localhost:8080/car/cars").then(
-        (response) => {
-          console.log("success", response.data);
-        },
-        (error) => {
-          console.log("fail", error.message);
-        }
-      );
-    },
-  },
 };
 </script>
+
